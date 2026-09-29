@@ -16,16 +16,18 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">
+        <a href="{{ url_for('customer_page') }}" class="logo">
             <span class="logo-icon">▣</span>
             ParcelTracker
-
-        </div>
+        </a>
 
         <div class="nav-links">
+            <a href="{{ url_for('customer_page') }}">
+                Track a Parcel
+            </a>
 
             <a href="{{ url_for('courier_page') }}">
-                Courier
+                Courier Home
             </a>
 
             <a href="{{ url_for('courier_dashboard') }}">
@@ -36,9 +38,7 @@
                class="active">
                 Parcel List
             </a>
-
         </div>
-
     </nav>
 
     <main class="courier-container">
