@@ -16,15 +16,18 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">
+        <a href="{{ url_for('customer_page') }}" class="logo">
             <span class="logo-icon">▣</span>
             ParcelTracker
-        </div>
+        </a>
 
         <div class="nav-links">
+            <a href="{{ url_for('customer_page') }}">
+                Track a Parcel
+            </a>
 
             <a href="{{ url_for('courier_page') }}">
-                Courier
+                Courier Home
             </a>
 
             <a href="{{ url_for('courier_dashboard') }}"
@@ -35,9 +38,7 @@
             <a href="{{ url_for('courier_parcel_list') }}">
                 Parcel List
             </a>
-
         </div>
-
     </nav>
 
     <main class="courier-container">
@@ -114,11 +115,11 @@
 
                 <p>
                     You currently have 
-                    <strong>    {{ pending }}    </strong>
+                    <strong>{{ pending }}</strong>
                     pending parcel(s),
-                    <strong>    {{ in_transit }}   </strong>
+                    <strong>{{ in_transit }}</strong>
                     parcel(s) in transit, and
-                    <strong>    {{ delivered }}    </strong>
+                    <strong>{{ delivered }}</strong>
                     delivered parcel(s).
                 </p>
 
