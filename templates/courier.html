@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Courier | ParcelTracker</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/courier.css') }}">
+
+</head>
+
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">▣</span>
+            ParcelTracker
+        </div>
+
+        <div class="nav-links">
+            <a href="{{ url_for('courier_page') }}"
+               class="active">
+                Courier
+            </a>
+
+            <a href="{{ url_for('courier_dashboard') }}">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('courier_parcel_list') }}">
+                Parcel List
+            </a>
+        </div>
+    </nav>
+
+    <main class="courier-container">
+        <section class="hero-section">
+            <div class="hero-content">
+
+                <p class="section-label">
+                    COURIER PORTAL
+                </p>
+
+                <h1>
+                    Welcome to the<br>
+                    <span>Courier Portal</span>
+                </h1>
+
+                <p class="hero-description">
+                    Manage your assigned parcels,
+                    monitor deliveries, and keep
+                    delivery information up to date.
+                </p>
+
+                <div class="courier-buttons">
+                    <a href="{{ url_for('courier_dashboard') }}"
+                       class="primary-btn">
+                        Go to Dashboard →
+                    </a>
+
+                    <a href="{{ url_for('courier_parcel_list') }}"
+                       class="secondary-btn">
+                        View My Parcels →
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="hero-illustration">
+                📦
+            </div>
+        </section>
+
+        <section class="feature-section">
+            <div class="feature-card green-card">
+
+                <h3>
+                    My Parcels
+                </h3>
+
+                <p>
+                    View the parcels currently
+                    assigned to you.
+                </p>
+
+                <a href="{{ url_for('courier_parcel_list') }}">
+                    View Parcels →
+                </a>
+
+            </div>
+
+            <div class="feature-card orange-card">
+
+                <h3>
+                    Delivery Status
+                </h3>
+
+                <p>
+                    Check the current status of
+                    your assigned deliveries.
+                </p>
+
+                <a href="{{ url_for('courier_parcel_list') }}">
+                    Check Status →
+                </a>
+
+            </div>
+
+            <div class="feature-card blue-card">
+
+                <h3>
+                    Update Delivery
+                </h3>
+
+                <p>
+                    Update parcel status as the
+                    delivery progresses.
+                </p>
+
+                <a href="{{ url_for('courier_parcel_list') }}">
+                    Update Status →
+                </a>
+
+            </div>
+
+            <div class="feature-card pink-card">
+
+                <h3>
+                    Dashboard
+                </h3>
+
+                <p>
+                    View an overview of your
+                    assigned deliveries.
+                </p>
+
+                <a href="{{ url_for('courier_dashboard') }}">
+                    View Dashboard →
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
