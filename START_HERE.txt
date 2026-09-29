@@ -1,0 +1,6 @@
+1. Unzip this folder somewhere simple (e.g. Desktop).
+2. Double-click run.bat
+3. Wait until it says: Running on http://127.0.0.1:5000
+4. Open http://127.0.0.1:5000/customer in your browser and type PT1001
+
+Needs Python from python.org (tick "Add Python to PATH" when installing).
