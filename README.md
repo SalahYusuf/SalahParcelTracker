@@ -1,3 +1,4 @@
+ HEAD
 # Salah Parcel Tracker 
 
 ## Files
@@ -24,7 +25,28 @@
 
 From the project folder:
 
+# Parcel Tracker - Simple Python Version
+
+Run:
+>>>>>>> cca450d (retweaks)
+
 ```bash
 python3 main.py
 ```
 
+<<<<<<< HEAD
+=======
+Files:
+
+- `main.py` - homepage and shared parcel data
+- `customer.py` - customer parcel tracking
+- `courier.py` - courier menu and status update
+
+Suggested branches:
+
+- `homepage`
+- `customer`
+- `courier`
+
+No framework or external library is required.
+cca450d (retweaks)
