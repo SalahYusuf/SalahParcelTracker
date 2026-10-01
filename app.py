@@ -3,6 +3,115 @@ app = Flask(__name__)
 
 parcels = []
 
+# HOMEPAGE
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+# CUSTOMER
+
+@app.route("/customer")
+def customer_page():
+    query = request.args.get("q", "").strip().upper()
+
+    if not query:
+        return render_template(
+            "customer.html",
+            query="",
+            error=None
+        )
+
+    parcel = None
+
+    for item in parcels:
+        if item.get("id") == query:
+            parcel = item
+            break
+
+    if parcel is None:
+        return render_template(
+            "customer.html",
+            query=query,
+            error="Tracking number not found."
+        )
+
+    return redirect(
+        url_for(
+            "customer_tracking",
+            parcel_id=parcel["id"]
+        )
+    )
+
+
+@app.route("/customer/<parcel_id>/tracking")
+def customer_tracking(parcel_id):
+    parcel = None
+
+    for item in parcels:
+        if item.get("id") == parcel_id:
+            parcel = item
+            break
+
+    if parcel is None:
+        return redirect(url_for("customer_page"))
+
+    statuses = [
+        "Pending",
+        "In Transit",
+        "Delivered"
+    ]
+
+    history = parcel.get("history", [])
+
+    return render_template(
+        "customer_tracking.html",
+        parcel=parcel,
+        statuses=statuses,
+        history=history,
+        active="tracking"
+    )
+
+
+@app.route("/customer/<parcel_id>/receiver")
+def customer_receiver(parcel_id):
+    parcel = None
+
+    for item in parcels:
+        if item.get("id") == parcel_id:
+            parcel = item
+            break
+
+    if parcel is None:
+        return redirect(url_for("customer_page"))
+
+    return render_template(
+        "customer_receiver.html",
+        parcel=parcel,
+        phone=parcel.get("phone", "-"),
+        address=parcel.get("address", "-"),
+        active="receiver"
+    )
+
+
+@app.route("/customer/<parcel_id>/details")
+def customer_details(parcel_id):
+    parcel = None
+
+    for item in parcels:
+        if item.get("id") == parcel_id:
+            parcel = item
+            break
+
+    if parcel is None:
+        return redirect(url_for("customer_page"))
+
+    return render_template(
+        "customer_details.html",
+        parcel=parcel,
+        active="details"
+    )
+
 # COURIER
 
 courier = {

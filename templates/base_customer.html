@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{% endblock %} | ParcelTracker</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/courier.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/customer.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="{{ url_for('customer_page') }}" class="logo">
+            <span class="logo-icon">▣</span>
+            ParcelTracker
+        </a>
+
+        <div class="nav-links">
+            <a href="{{ url_for('customer_page') }}"
+               class="{% if active in ['customer', 'home', 'tracking', 'receiver', 'details'] %}active{% endif %}">
+                Track a Parcel
+            </a>
+
+            <a href="{{ url_for('courier_page') }}"
+               class="{% if active == 'courier' %}active{% endif %}">
+                Courier Home
+            </a>
+
+            <a href="{{ url_for('courier_dashboard') }}"
+               class="{% if active == 'dashboard' %}active{% endif %}">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('courier_parcel_list') }}"
+               class="{% if active == 'parcel_list' %}active{% endif %}">
+                Parcel List
+            </a>
+        </div>
+    </nav>
+
+    <main class="courier-container">
+
+        {% if parcel %}
+        <header class="parcel-header">
+            <div>
+                <p class="section-label">TRACKING NUMBER</p>
+                <h1>{{ parcel.id }}</h1>
+            </div>
+
+            <span class="status
+                {% if parcel.status == 'Pending' %}pending
+                {% elif parcel.status == 'In Transit' %}transit
+                {% elif parcel.status == 'Delivered' %}delivered{% endif %}">
+                {{ parcel.status }}
+            </span>
+        </header>
+
+        <div class="tabs">
+            <a href="{{ url_for('customer_tracking', parcel_id=parcel.id) }}"
+               class="{% if active == 'tracking' %}active{% endif %}">
+                Parcel Tracking
+            </a>
+
+            <a href="{{ url_for('customer_receiver', parcel_id=parcel.id) }}"
+               class="{% if active == 'receiver' %}active{% endif %}">
+                Receiver
+            </a>
+
+            <a href="{{ url_for('customer_details', parcel_id=parcel.id) }}"
+               class="{% if active == 'details' %}active{% endif %}">
+                Parcel Details
+            </a>
+        </div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+
+    </main>
+
+</body>
+
+</html>
