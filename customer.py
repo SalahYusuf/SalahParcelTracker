@@ -17,7 +17,7 @@ def customer_menu(parcels):
 
 
 def track_parcel(parcels):
-    parcel_id = input("Tracking ID: ").upper()
+    parcel_id = input("Tracking ID (example: P001): ").upper()
     found = False
 
     for parcel in parcels:
