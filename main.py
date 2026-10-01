@@ -38,6 +38,12 @@ parcels = [
         "receiver": "Zuhaira",
         "destination": "Kajang",
         "status": "Delivered"
+    },
+    {
+        "id": "P097",
+        "receiver": "Afif Zakwan",
+        "destination": "Ke Hati Kamu 💖",
+        "status": "Pending"
     }
 ]
 
