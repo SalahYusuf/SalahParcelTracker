@@ -1,0 +1,255 @@
+/* CUSTOMER PAGES (loads after courier.css, reuses its colours) */
+
+/* SEARCH */
+
+.track-search {
+    max-width: 560px;
+    margin: 40px auto;
+}
+
+.track-search h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 13px 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+
+.search-form input:focus,
+.search-btn:focus-visible,
+.tabs a:focus-visible {
+    outline: 2px solid #39745b;
+    outline-offset: 2px;
+}
+
+.search-btn {
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.error-msg {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: #f4e5e5;
+    color: #8a3a3a;
+    border-radius: 7px;
+}
+
+/* PARCEL HEADER + TABS */
+
+.parcel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.parcel-header h1 {
+    font-size: 34px;
+}
+
+.parcel-header .status {
+    font-size: 15px;
+    padding: 8px 14px;
+}
+
+.tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: #68736d;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-bottom: 3px solid transparent;
+}
+
+.tabs a:hover {
+    color: #39745b;
+}
+
+.tabs a.active {
+    color: #39745b;
+    border-bottom-color: #39745b;
+}
+
+/* PANEL */
+
+.panel {
+    background: white;
+    padding: 26px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+}
+
+.panel h2 {
+    margin-bottom: 20px;
+}
+
+.note {
+    margin-top: 20px;
+    color: #68736d;
+    font-size: 14px;
+}
+
+/* PROGRESS */
+
+.progress {
+    display: flex;
+    margin-bottom: 25px;
+    background: white;
+    padding: 26px 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+}
+
+.progress-step {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #68736d;
+    font-size: 14px;
+}
+
+.progress-step::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: 50%;
+    width: 100%;
+    height: 3px;
+    background: #ddd;
+}
+
+.progress-step:first-child::before {
+    display: none;
+}
+
+.progress-step .dot {
+    position: relative;
+    z-index: 1;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: #ddd;
+    border: 3px solid white;
+    box-shadow: 0 0 0 1px #ddd;
+}
+
+.progress-step.done::before,
+.progress-step.current::before {
+    background: #39745b;
+}
+
+.progress-step.done .dot,
+.progress-step.current .dot {
+    background: #39745b;
+    box-shadow: 0 0 0 1px #39745b;
+}
+
+.progress-step.current {
+    color: #26352e;
+    font-weight: bold;
+}
+
+/* TIMELINE */
+
+.timeline {
+    list-style: none;
+    border-left: 2px solid #ddd;
+    margin-left: 6px;
+}
+
+.timeline li {
+    position: relative;
+    padding: 0 0 22px 22px;
+}
+
+.timeline li:last-child {
+    padding-bottom: 0;
+}
+
+.timeline li::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ccc;
+}
+
+.timeline li.latest::before {
+    background: #39745b;
+}
+
+.timeline .time {
+    margin-left: 10px;
+    color: #68736d;
+    font-size: 14px;
+}
+
+.timeline p {
+    margin-top: 4px;
+    color: #68736d;
+}
+
+/* INFO GRID */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 30px;
+}
+
+.info-grid dt {
+    color: #68736d;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.info-grid dd {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tabs {
+        overflow-x: auto;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .parcel-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
