@@ -20,6 +20,24 @@ parcels = [
         "receiver": "Aleesya",
         "destination": "Shah Alam",
         "status": "Delivered"
+    },
+    {
+        "id": "P004",
+        "receiver": "Zarlyn",
+        "destination": "Gombak",
+        "status": "Pending"
+    },
+    {
+        "id": "P005",
+        "receiver": "Adam",
+        "destination": "Sungai Besi",
+        "status": "In Transit"
+    },
+    {
+        "id": "P006",
+        "receiver": "Zuhaira",
+        "destination": "Kajang",
+        "status": "Delivered"
     }
 ]
 
